@@ -5,7 +5,9 @@ node {
 	 def IMAGE="${registryProjet}:version-${env.BUILD_ID}"
 
 	 echo "IMAGE = $IMAGE"
-
+    stage('Clean') {
+        cleanWs()
+	  }
     stage('Clone') {
     			checkout scm
 		}
