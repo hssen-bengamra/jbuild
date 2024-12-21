@@ -1,7 +1,7 @@
 def pipelineContext = [:]
 node {
 
-   def registryProjet='registry.gitlab.com/xavki/presentations-jenkins'
+   def registryProjet='registry.gitlab.com/ws5802227/test'
 	 def IMAGE="${registryProjet}:version-${env.BUILD_ID}"
 
 	 echo "IMAGE = $IMAGE"
@@ -15,7 +15,7 @@ node {
 		}
 	
 		stage('Run') {
-					img.withRun("--name run-$BUILD_ID -p 80:80") { c ->
+					img.withRun("--name run-$BUILD_ID -p 8086:80") { c ->
 						sh 'curl localhost'
           }					
 		}
